@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منظومة إدارة المدارس | النظام الذكي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div id="login-screen">
+    <div class="login-bg"></div>
+    <div class="login-card animate-in">
+      <div class="login-emblem">🏛️</div>
+      <div class="login-title">منظومة إدارة المدارس</div>
+      <div class="login-sub">النظام الذكي</div>
+
+      <div class="login-tabs">
+        <div class="login-tab active" data-login-mode="admin">👤 المشرف</div>
+        <div class="login-tab" data-login-mode="student">🎓 الطالب</div>
+        <div class="login-tab" data-login-mode="register">📝 إنشاء حساب</div>
+      </div>
+
+      <div id="login-error" class="login-error"></div>
+
+      <div id="login-mode-admin">
+        <div class="login-field"><label>اسم المستخدم</label><input type="text" id="admin-user" placeholder="admin" autocomplete="username"></div>
+        <div class="login-field"><label>كلمة المرور</label><input type="password" id="admin-pass" placeholder="••••••••" autocomplete="current-password"></div>
+        <button class="login-btn" id="btn-admin-login" type="button">تسجيل دخول كمسؤول</button>
+      </div>
+
+      <div id="login-mode-student" style="display:none">
+        <div class="login-field"><label>البريد الإلكتروني</label><input type="email" id="stu-email" placeholder="student@gmail.com"></div>
+        <div class="login-field"><label>كلمة المرور</label><input type="password" id="stu-pass" placeholder="••••••••"></div>
+        <button class="login-btn" id="btn-student-login" type="button">تسجيل دخول كطالب</button>
+      </div>
+
+      <div id="login-mode-register" style="display:none">
+        <div class="login-field"><label>الاسم الكامل (يجب أن يطابق سجل المدرسة)</label><input type="text" id="reg-name" placeholder="محمد علي"></div>
+        <div class="login-field"><label>البريد الإلكتروني</label><input type="email" id="reg-email" placeholder="student@gmail.com"></div>
+        <div class="login-field"><label>كلمة المرور</label><input type="password" id="reg-pass" placeholder="••••••••"></div>
+        <div class="login-field"><label>تأكيد كلمة المرور</label><input type="password" id="reg-pass2" placeholder="••••••••"></div>
+        <button class="login-btn" id="btn-register" type="button">إنشاء حساب طالب</button>
+      </div>
+
+      <div class="login-footer">© 2026 النظام الذكي</div>
+    </div>
+  </div>
+
+  <div id="app">
+    <div class="app-wrap">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head"><div class="sidebar-logo">🏛️ النظام الذكي<span>منظومة إدارة المدارس v5</span></div></div>
+        <nav class="sidebar-nav">
+          <div class="nav-section">الرئيسية</div>
+          <div class="nav-item active" data-page="dashboard"><span class="nav-icon">📊</span>لوحة القيادة</div>
+
+          <div class="nav-section" id="nav-students-sec">إدارة الطلبة</div>
+          <div class="nav-item" data-page="students" id="nav-students"><span class="nav-icon">👥</span>سجل الطلبة</div>
+          <div class="nav-item" data-page="import" id="nav-import"><span class="nav-icon">📂</span>استيراد الطلبة<span class="nav-badge badge-ai" style="background:rgba(139,92,246,.2);color:#a78bfa">AI</span></div>
+          <div class="nav-item" data-page="divisions" id="nav-divisions"><span class="nav-icon">🏫</span>الشُعب والصفوف</div>
+          <div class="nav-item" data-page="attendance" id="nav-attendance"><span class="nav-icon">📋</span>سجل الحضور والغياب</div>
+
+          <div class="nav-section">الشؤون الأكاديمية</div>
+          <div class="nav-item" data-page="grades" id="nav-grades"><span class="nav-icon">📝</span>سجل الدرجات</div>
+          <div class="nav-item" data-page="subjects" id="nav-subjects"><span class="nav-icon">📚</span>المواد الدراسية</div>
+          <div class="nav-item" data-page="exams"><span class="nav-icon">🎯</span>جدول الامتحانات</div>
+
+          <div class="nav-section">الإدارة</div>
+          <div class="nav-item" data-page="teachers" id="nav-teachers"><span class="nav-icon">👨‍🏫</span>الكادر التدريسي</div>
+          <div class="nav-item" data-page="announcements"><span class="nav-icon">📢</span>التعليمات والإعلانات</div>
+          <div class="nav-item" data-page="reports" id="nav-reports"><span class="nav-icon">📈</span>التقارير والشهادات</div>
+
+          <div class="nav-section" id="nav-admin-sec">الإعدادات والتخصيص</div>
+          <div class="nav-item" data-page="accounts" id="nav-accounts"><span class="nav-icon">👤</span>إدارة الحسابات</div>
+          <div class="nav-item" data-page="customize" id="nav-customize"><span class="nav-icon">🎨</span>تخصيص الموقع</div>
+        </nav>
+        <div class="sidebar-footer">
+          <div style="margin-bottom:8px; font-weight:600; color:var(--gold)" id="user-role-display"></div>
+          <div id="btn-logout" style="cursor:pointer;color:var(--danger)">🚪 تسجيل الخروج</div>
+        </div>
+      </aside>
+
+      <div class="main-area">
+        <header class="top-bar">
+          <button class="btn btn-icon" type="button" id="menu-btn" style="display:none">☰</button>
+          <div class="page-title" id="page-title">لوحة القيادة</div>
+          <div class="top-spacer"></div>
+          <div class="top-info">
+            <div class="date-badge" id="date-display"></div>
+            <div class="user-badge" id="btn-profile">
+              <div class="user-avatar" id="user-avatar">م</div>
+              <span id="user-name">المستخدم</span>
+              <span class="status-dot online"></span>
+            </div>
+          </div>
+        </header>
+        <div class="content-area" id="content-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-overlay"><div class="modal" id="modal-content"></div></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/pages/dashboard.js"></script>
+  <script src="js/pages/students.js"></script>
+  <script src="js/pages/academic.js"></script>
+  <script src="js/pages/staff.js"></script>
+  <script src="js/pages/admin.js"></script>
+  <script src="js/boot.js"></script>
+</body>
+</html>
