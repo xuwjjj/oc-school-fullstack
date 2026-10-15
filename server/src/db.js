@@ -93,10 +93,19 @@ db.exec(`
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     grade_level TEXT NOT NULL,
+    section TEXT NOT NULL DEFAULT 'غير محدد',
     guardian_name TEXT,
     guardian_phone TEXT,
     status TEXT NOT NULL DEFAULT 'active',
     created_at TEXT DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE TABLE IF NOT EXISTS school_classes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    grade_level TEXT NOT NULL,
+    section TEXT NOT NULL,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(grade_level, section)
   );
 
   CREATE TABLE IF NOT EXISTS staff (
@@ -149,6 +158,17 @@ const hasPasswordHash = userColumns.some((row) => row[1] === 'password_hash');
 if (!hasPasswordHash) {
   db.exec('ALTER TABLE users ADD COLUMN password_hash TEXT');
 }
+
+const studentColumns = db.exec('PRAGMA table_info(students)')[0]?.values || [];
+if (!studentColumns.some((row) => row[1] === 'section')) {
+  db.exec("ALTER TABLE students ADD COLUMN section TEXT NOT NULL DEFAULT 'غير محدد'");
+}
+
+db.exec(`
+  INSERT OR IGNORE INTO school_classes (grade_level, section)
+  SELECT DISTINCT grade_level, section FROM students
+  WHERE TRIM(grade_level) <> '' AND TRIM(section) <> ''
+`);
 
 db.save();
 

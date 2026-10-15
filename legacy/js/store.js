@@ -5,7 +5,7 @@ const STORAGE = {
 };
 
 const DEFAULT_ACCOUNTS = {
-  admin: { username: 'admin', name: 'المشرف العام' },
+  admin: { username: 'admin', password: 'Admin@2026m-m', name: 'المشرف العام' },
   students: []
 };
 
@@ -99,6 +99,11 @@ function loadStore() {
 function saveData() {
   localStorage.setItem(STORAGE.accounts, JSON.stringify(ACCOUNTS));
   localStorage.setItem(STORAGE.db, JSON.stringify(DB));
+}
+
+if (!ACCOUNTS.admin.password) {
+  ACCOUNTS.admin.password = 'Admin@2026m-m';
+  saveData();
 }
 
 function saveSession() {

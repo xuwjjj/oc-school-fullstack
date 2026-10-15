@@ -482,6 +482,16 @@ button {
   flex-wrap: wrap;
 }
 
+.student-import-actions select {
+  min-width: 220px;
+  min-height: 40px;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #1a2438;
+  color: var(--text);
+}
+
 .file-upload-button,
 .template-download {
   display: inline-flex;
@@ -735,6 +745,632 @@ button {
   background: rgba(17, 25, 40, 0.8);
 }
 
+.app-shell:has(.auth-card) {
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(214, 166, 66, 0.07), transparent 42%),
+    #0d1322;
+}
+
+.auth-card {
+  margin: auto;
+  direction: rtl;
+  border-color: rgba(132, 153, 188, 0.2);
+  border-radius: 20px;
+}
+
+.auth-emblem {
+  width: 78px;
+  height: 78px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 1.1rem;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #e8bd5b, #c9942e);
+  box-shadow: 0 10px 32px rgba(214, 166, 66, 0.2);
+  font-size: 2rem;
+}
+
+.auth-card h1 {
+  color: var(--primary-2);
+  margin: 0;
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
+  letter-spacing: 0;
+}
+
+.auth-subtitle {
+  margin: 0.55rem 0 1.5rem;
+  color: var(--text-soft);
+  text-align: center;
+  font-size: 0.83rem;
+}
+
+.auth-tabs {
+  justify-content: stretch;
+  padding: 0.3rem;
+  border-radius: 10px;
+  background: rgba(3, 7, 18, 0.55);
+}
+
+.auth-tabs button {
+  flex: 1;
+  padding: 0.68rem 0.55rem;
+  border-color: transparent;
+  background: transparent;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+}
+
+.auth-tabs button:first-child {
+  background: var(--panel-strong);
+  color: var(--primary-2);
+}
+
+.auth-form {
+  direction: rtl;
+  text-align: right;
+}
+
+.auth-form input {
+  text-align: right;
+}
+
+.auth-form input:focus,
+.module-form input:focus,
+.module-form select:focus {
+  border-color: rgba(214, 166, 66, 0.75);
+  box-shadow: 0 0 0 3px rgba(214, 166, 66, 0.12);
+}
+
+.auth-form button {
+  min-height: 48px;
+  margin-top: 0.25rem;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #171923;
+}
+
+.auth-footer {
+  margin-top: 1.25rem;
+  color: var(--text-soft);
+  text-align: center;
+  font-size: 0.77rem;
+}
+
+.attendance-register,
+.student-report-search {
+  display: grid;
+  gap: 1rem;
+  padding: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(8, 13, 24, 0.48);
+}
+
+.attendance-register .section-heading p,
+.student-report-search p,
+.class-create-form p {
+  margin: 0.35rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+}
+
+.attendance-date-field {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+}
+
+.attendance-date-field input,
+.attendance-filters input,
+.attendance-filters select,
+.student-report-search input,
+.class-create-form input {
+  min-width: 0;
+  padding: 0.78rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  outline: none;
+  background: var(--panel-strong);
+  color: var(--text);
+}
+
+.attendance-roster,
+.class-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.attendance-student,
+.class-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: rgba(17, 25, 40, 0.8);
+}
+
+.attendance-student > div,
+.class-card > div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.attendance-student > div span,
+.class-card > div span,
+.class-student-count {
+  color: var(--text-soft);
+  font-size: 0.75rem;
+}
+
+.attendance-status {
+  color: var(--text-soft);
+  font-size: 0.78rem;
+}
+
+.attendance-status.status-absent {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.attendance-status.status-present {
+  color: var(--success);
+}
+
+.absence-toggle {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  border-radius: 9px;
+  background: rgba(248, 113, 113, 0.1);
+  color: #ff8585;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.absence-toggle.mark-present {
+  border-color: rgba(52, 211, 153, 0.32);
+  background: rgba(52, 211, 153, 0.1);
+  color: var(--success);
+}
+
+.attendance-limit,
+.report-empty {
+  margin: 0;
+  color: var(--text-soft);
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+.student-report-search {
+  position: relative;
+}
+
+.frequent-absence-report,
+.database-backup-panel {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(8, 13, 24, 0.48);
+}
+
+.frequent-absence-heading,
+.backup-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.frequent-absence-heading h4 {
+  margin: 0;
+}
+
+.frequent-absence-heading p {
+  margin: 0.35rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+}
+
+.frequent-absence-heading button,
+.absence-threshold-form button,
+.backup-row button,
+.export-report-button {
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-strong);
+  color: var(--primary-2);
+  font-weight: 700;
+}
+
+.frequent-absence-heading button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.absence-threshold-form {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+}
+
+.absence-threshold-form input {
+  width: 84px;
+  padding: 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-strong);
+  color: var(--text);
+}
+
+.backup-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.backup-row {
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(17, 25, 40, 0.8);
+}
+
+.backup-row > div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.backup-row > div span {
+  color: var(--text-soft);
+  font-size: 0.76rem;
+}
+
+.report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.student-report-search h4,
+.student-report-search p {
+  margin-top: 0;
+}
+
+.report-search-results {
+  display: grid;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 0.3rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #111827;
+}
+
+.report-search-results button {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text);
+  text-align: right;
+}
+
+.report-search-results button:hover {
+  background: var(--panel-strong);
+}
+
+.report-search-results button span {
+  color: var(--text-soft);
+  font-size: 0.78rem;
+}
+
+.student-report-print {
+  display: grid;
+  gap: 1.2rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #101827;
+}
+
+.report-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.report-title-row h2,
+.report-section h3 {
+  margin: 0;
+}
+
+.report-eyebrow {
+  color: var(--primary-2);
+  font-size: 0.76rem;
+}
+
+.report-title-row h2 {
+  margin-top: 0.25rem;
+  font-size: 1.25rem;
+}
+
+.print-report-button,
+.text-action {
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-strong);
+  color: var(--primary-2);
+  font-weight: 700;
+}
+
+.student-report-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.student-report-summary > div {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+}
+
+.student-report-summary span {
+  color: var(--text-soft);
+  font-size: 0.76rem;
+}
+
+.student-report-summary strong {
+  overflow-wrap: anywhere;
+}
+
+.report-section {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.report-section h3 {
+  font-size: 0.95rem;
+}
+
+.absence-dates {
+  margin: 0;
+  padding: 0.85rem;
+  border-radius: 8px;
+  background: rgba(248, 113, 113, 0.08);
+  color: #ffaaaa;
+  line-height: 1.8;
+}
+
+.class-create-form {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(8, 13, 24, 0.48);
+}
+
+.class-roster-import {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.grade-import-guide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(8, 13, 24, 0.48);
+}
+
+.teacher-account-box {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(8, 13, 24, 0.48);
+}
+
+.teacher-account-box h4,
+.teacher-account-box p {
+  margin: 0;
+}
+
+.teacher-account-box > p {
+  color: var(--text-soft);
+  font-size: 0.82rem;
+}
+
+.teacher-account-list {
+  display: grid;
+  gap: 0.5rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+}
+
+.teacher-account-list h5 {
+  margin: 0;
+}
+
+.teacher-account-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.teacher-account-row > div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.teacher-account-row span {
+  color: var(--text-soft);
+  font-size: 0.76rem;
+}
+
+.teacher-account-row button {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: 7px;
+  background: rgba(248, 113, 113, 0.08);
+  color: #ff8585;
+}
+
+.grade-import-guide p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+.grade-import-guide strong {
+  color: var(--primary-2);
+}
+
+.grade-import-form {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(8, 13, 24, 0.48);
+}
+
+.grade-file-picker {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.75rem 0.9rem;
+  border: 1px dashed rgba(214, 166, 66, 0.42);
+  border-radius: 9px;
+  color: var(--primary-2);
+  background: rgba(214, 166, 66, 0.035);
+  cursor: pointer;
+}
+
+.grade-file-picker input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.grade-import-form > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.class-card {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+}
+
+.class-student-count {
+  white-space: nowrap;
+}
+
+.class-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.edit-class-button,
+.save-class-button,
+.cancel-class-button {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--panel-strong);
+  color: var(--primary-2);
+}
+
+.cancel-class-button {
+  color: var(--text-soft);
+}
+
+.class-edit-form {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.class-edit-form input {
+  min-width: 0;
+  padding: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--panel-strong);
+  color: var(--text);
+}
+
+.delete-class-button {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: 7px;
+  background: rgba(248, 113, 113, 0.08);
+  color: #ff8585;
+}
+
+.delete-class-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+@media print {
+  @page {
+    margin: 16mm;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .student-report-print,
+  .student-report-print * {
+    visibility: visible !important;
+    color: #111 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  .student-report-print {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    border: 0;
+  }
+
+  .student-report-print .report-actions {
+    display: none;
+  }
+
+  .student-report-print .data-table th,
+  .student-report-print .data-table td,
+  .student-report-print .student-report-summary > div {
+    border-color: #bbb !important;
+  }
+}
+
 @media (max-width: 860px) {
   .dashboard {
     flex-direction: column;
@@ -773,8 +1409,57 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .student-report-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .report-title-row,
+  .attendance-register .section-heading,
+  .frequent-absence-heading,
+  .backup-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .absence-threshold-form {
+    flex-wrap: wrap;
+  }
+
+  .attendance-student,
+  .class-card {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .attendance-status {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .absence-toggle {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .class-card .delete-class-button {
+    grid-column: 2;
+  }
+
+  .class-actions {
+    grid-column: 2;
+  }
+
   .student-import-box {
     grid-template-columns: 1fr;
+  }
+
+  .grade-import-guide,
+  .class-roster-import {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .grade-import-guide {
+    flex-direction: column;
   }
 
   .app-shell {

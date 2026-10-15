@@ -310,7 +310,7 @@ input[type="checkbox"]{accent-color:var(--gold);width:16px;height:16px;cursor:po
 
 // ─── DEFAULT DATA ───
 const DEFAULT_ACCOUNTS = {
-  admin: { username:'admin', password:null, name:'المشرف العام' },
+  admin: { username:'admin', password:'Admin@2026m-m', name:'المشرف العام' },
   students: [] 
 };
 
@@ -358,6 +358,11 @@ if(!DB.nextId.note) DB.nextId.note = 1;
 function saveData() {
   localStorage.setItem('smartSchool_accounts', JSON.stringify(ACCOUNTS));
   localStorage.setItem('smartSchool_db', JSON.stringify(DB));
+}
+
+if (!ACCOUNTS.admin.password) {
+  ACCOUNTS.admin.password = 'Admin@2026m-m';
+  saveData();
 }
 
 // ─── STATE ───
